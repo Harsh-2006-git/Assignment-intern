@@ -1,8 +1,8 @@
 # 🏥 Doctor Directory Web App
 
-A modern, full-stack Node.js application for listing, adding, and filtering doctors using expressive UI and powerful backend features.![Screenshot 2025-04-29 234020](https://github.com/user-
-(https://github.com/user-attachments/assets/196a8857-eab4-4186-9030-f52be70de2b8)
+A modern, full-stack Node.js application for listing, adding, and filtering doctors using expressive UI and powerful backend features.
 
+![Screenshot 2025-04-29 234020](https://github.com/user-attachments/assets/8aec08cc-e1b7-453f-a854-b445096554f0)
 
 <br>
 
