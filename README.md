@@ -39,9 +39,22 @@ Sort doctors based on most relevant matches for the filters.
 
 ## 📂 Project Structure
 
-doctor-directory-app/ ├── views/ # EJS templates │ ├── partials/
-│ ├── index.ejs
-│ └── addDoctor.ejs
-├── public/ # Static files (CSS, JS, icons) ├── routes/ │ └── doctorRoutes.js
-├── models/ │ └── Doctor.js
-├── app.js # Express app entry └── .env # Environment variables
+doctor-directory-app/
+├── views/                  # EJS templates (frontend UI)
+│   ├── partials/           # Reusable EJS components like header/footer
+│   ├── index.ejs           # Main page: displays doctor listings and filters
+│   └── addDoctor.ejs       # Page with form to add new doctors
+│
+├── public/                 # Static assets (CSS, JS, images)
+│   ├── css/                # Custom styles
+│   └── js/                 # Optional client-side scripts
+│
+├── routes/                 
+│   └── doctorRoutes.js     # Express route definitions (GET/POST)
+│
+├── models/                 
+│   └── Doctor.js           # Mongoose schema/model for doctor data
+│
+├── app.js                  # Main Express application file
+├── .env                    # Environment variables (e.g., MongoDB URI)
+└── README.md               # Project documentation
