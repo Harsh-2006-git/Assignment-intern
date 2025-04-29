@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consult General Physicians Online - Apollo 247 Clone</title>
+    <meta
+      name="description"
+      content="Find and consult with top general physicians online at Apollo 247. Book appointments with internal medicine specialists."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+
+    <main class="main-container">
+      <div class="breadcrumb">Home > Doctors > General Physicians</div>
+
+      <h1>Consult General Physicians Online - Internal Medicine Specialists</h1>
+      <p class="doctor-count"><span id="doctor-count">0</span> doctors</p>
+
+      <div class="content-container">
+        <button class="mobile-filter-toggle">
+          <i class="fas fa-filter"></i> Filters
+        </button>
+
+        <%- include('./partials/filters') %>
+
+        <section class="doctors-list">
+          <div class="sort-container">
+            <select id="sort-options">
+              <option value="relevance">Relevance</option>
+              <option value="experience-high">Experience: High to Low</option>
+              <option value="experience-low">Experience: Low to High</option>
+              <option value="fees-high">Fees: High to Low</option>
+              <option value="fees-low">Fees: Low to High</option>
+            </select>
+          </div>
+
+          <div id="doctors-container" class="animate-fadeIn">
+            <% if (doctors && doctors.length > 0) { %> <%
+            doctors.forEach((doctor) => { %>
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="<%= doctor.imageUrl %>" alt="<%= doctor.name %>" />
+              </div>
+              <div class="doctor-info">
+                <h3><%= doctor.name %></h3>
+                <p class="specialization"><%= doctor.specialization %></p>
+                <p class="qualification"><%= doctor.qualification %></p>
+                <div class="rating">
+                  <% for (let i = 1; i <= 5; i++) { %>
+                  <i
+                    class="fas fa-star <%= i <= Math.round(doctor.rating) ? 'filled' : '' %>"
+                  ></i>
+                  <% } %>
+                  <span>(<%= doctor.rating %>)</span>
+                </div>
+                <p class="experience">
+                  <%= doctor.experience %> years experience
+                </p>
+                <p class="languages">
+                  Speaks: <%= doctor.languages.join(', ') %>
+                </p>
+                <p class="fees">₹<%= doctor.fees %> consultation fee</p>
+                <div class="consult-modes">
+                  <% doctor.consultMode.forEach(mode => { %>
+                  <span class="mode-badge"><%= mode %></span>
+                  <% }); %>
+                </div>
+                <button class="book-btn">Book Appointment</button>
+              </div>
+            </div>
+            <% }); %> <% } else { %>
+            <div class="no-doctors">No doctors found</div>
+            <% } %>
+          </div>
+
+          <div class="pagination" id="pagination-container">
+            <!-- Pagination will be dynamically inserted here -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>

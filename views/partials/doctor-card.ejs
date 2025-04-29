@@ -1,0 +1,29 @@
+<!-- Doctor Profile Card in EJS -->
+<div class="doctor-card">
+  <div class="doctor-header">
+    <h2 class="doctor-name"><%= doctor.name %></h2>
+    <p class="doctor-specialty"><%= doctor.specialty %></p>
+    <p class="doctor-experience"><%= doctor.experience %> Years Experience</p>
+  </div>
+
+  <div class="doctor-details">
+    <div class="detail-item">
+      <span class="rating"><%= doctor.rating %></span>
+    </div>
+
+    <div class="detail-item">
+      <span class="languages"
+        ><%= doctor.languages.slice(0, 2).join(', ') %></span
+      >
+    </div>
+
+    <div class="detail-item">
+      <span class="consult-mode"><%= doctor.consultMode[0] %></span>
+    </div>
+  </div>
+
+  <div class="doctor-footer">
+    <div class="doctor-fee">₹<%= doctor.fees %></div>
+    <button class="book-btn">Book Appointment</button>
+  </div>
+</div>
